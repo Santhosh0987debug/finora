@@ -1,0 +1,46 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Finora personal finance app — Express backend (Step 1)",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio",
+    "db:seed": "tsx prisma/seed.ts",
+    "test:unit": "tsx --test tests/auth.unit.test.ts tests/accounts.unit.test.ts tests/transactions.unit.test.ts tests/dashboard.unit.test.ts tests/budgets.unit.test.ts tests/pots.unit.test.ts tests/bills.unit.test.ts",
+    "test:integration": "tsx --test tests/auth.integration.test.ts && tsx --test tests/accounts.integration.test.ts && tsx --test tests/transactions.integration.test.ts && tsx --test tests/dashboard.integration.test.ts && tsx --test tests/budgets.integration.test.ts && tsx --test tests/pots.integration.test.ts && tsx --test tests/bills.integration.test.ts"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^22.7.5",
+    "prisma": "^6.19.3",
+    "tsx": "^4.19.2",
+    "typescript": "~5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

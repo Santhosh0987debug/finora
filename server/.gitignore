@@ -1,0 +1,14 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Deps / build
+node_modules
+dist
+*.tsbuildinfo
+
+# Env — never commit real credentials
+.env
+.env.*
+!.env.example
