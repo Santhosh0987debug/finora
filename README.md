@@ -156,13 +156,18 @@ once if the database has no categories; it never creates financial records.
 
 - Framework Preset: Vite
 - Root Directory: `client`
-- Install Command: `npm ci --include=dev`
+- Install Command: `npm ci --include=dev --workspaces=false`
 - Build Command: `npm run build`
 - Output Directory: `dist`
 - Node.js Version: `22.x`
 - Environment variable (Production and Preview as needed):
   - `VITE_API_URL` — deployed Render URL, for example
     `https://finora-api.onrender.com` (no trailing slash)
+
+`--workspaces=false` makes npm use `client/package-lock.json` instead of the
+root workspace lock. The root lock omits Linux native optional dependencies,
+which breaks Vite builds on Vercel. `client/vercel.json` applies the install
+command and build settings for the frontend project.
 
 `VITE_API_URL` is embedded at build time, so changing it requires a new Vercel
 deployment. No rewrite rules are needed because page navigation is state-based,
